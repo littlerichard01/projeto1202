@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ENCONTRESEUCAVALOIDEAL.COM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <style>
+        #destaque {
+            transition: 0.5s;
+        }
+
+        #destaque:hover {
+            transition: 0.5;
+            color: red;
+        }
+
+        .carousel-item:hover {
+            transform: scale(1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .game-container {
+            position: relative;
+            width: 80%;
+            height: 200px;
+            background: linear-gradient(to bottom, #dd5800, #dbaf55);
+            overflow: hidden;
+        }
+
+        /* Dino */
+        .dino {
+            position: absolute;
+            bottom: 10px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: url(cavalo_gif.gif) no-repeat center/contain;
+            z-index: 10;
+        }
+
+        /* Tree */
+        .tree {
+            position: absolute;
+            bottom: 0px;
+            right: -50px;
+            width: 40px;
+            height: 60px;
+            background: url(cacto.png) no-repeat center/contain;
+            animation: move-tree 2s linear infinite;
+        }
+
+        @keyframes move-tree {
+            0% {
+                right: -50px;
+            }
+
+            100% {
+                right: 100%;
+            }
+        }
+
+        /* Ground */
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #000000;
+        }
+
+        /* Game Over */
+        .game-over {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body background="cavalo_bg.jpg">
+
+    <div class="container text-center"
+        style="background-color: rgb(0, 0, 0, 0.7); border-radius: 5em; margin-top: 1em; margin-bottom: 1em; padding-top: 2em; padding-bottom: 2em;">
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+                    <div class="container-fluid bg-dark" style="width: 88%; height: 5em; border-radius: 1em;">
+                        <a class="navbar-brand" href="#">ENCONTRESEUCAVALOIDEAL.COM</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Faça seu cadastro</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Veja nossos cavalos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Jogos de cavalos para cavalos</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container text-center d-flex">
+            <div class="container-fluid bg-dark"
+                style="width: 40%;; border-radius: 1em; margin-top: 1em; margin-bottom: 1em; ">
+                <div class="row">
+                    <div class="col">
+                        <nav class="navbar bg-body-light" style="padding-top: 1.5em;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" style="color: white;">Cadastro</a>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <form>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: left; padding-bottom: 1em;">
+                                <label for="inputNome" class="form-label" style="color: white;">Nome Completo:</label>
+                                <input type="text" id="inputNome" class="form-control" required
+                                    style="background-color: #212529; color: white;">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: left; padding-bottom: 1em;">
+                                <label for="inputTel" class="form-label" style="color: white;">Telefone:</label>
+                                <input type="text" id="inputTel" class="form-control" required
+                                    style="background-color: #212529; color: white;">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: left; padding-bottom: 1em;">
+                                <label for="inputEmail" class="form-label" style="color: white;">Email:</label>
+                                <input type="email" id="inputEmail" class="form-control" required
+                                    style="background-color: #212529; color: white;">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: left; padding-bottom: 1em;">
+                                <label for="inputOrigem" class="form-label" style="color: white;">Equino
+                                    Predileto:</label>
+                                <select class="form-select" id="inputOrigem" aria-label="Default select example"
+                                    required style="background-color: #212529; color: white;">
+                                    <option style="color: white;">Asno</option>
+                                    <option selected style="color: white;">Cavalo</option>
+                                    <option style="color: white;">Pônei</option>
+                                    <option style="color: white;">Unicórnio</option>
+                                    <option style="color: white;">Zebra</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: left; padding-bottom: 1em;">
+                                <label for="inputObs" class="form-label" style="color: white;">Observação:</label>
+                                <textarea class="form-control" id="inputObs" rows="5"
+                                    style="background-color: #212529; color: white;"></textarea>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: left; padding-bottom: 1em;">
+                                <label for="inputSenha" class="form-label" style="color: white;">Senha:</label>
+                                <input type="password" id="inputSenha" class="form-control" required
+                                    style="background-color: #212529; color: white;"></input>
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                    <span style="color: white;">Sua senha deve ter pelo menos um nome de espécie de
+                                        equino.</span>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container-fluid" style="text-align: right; padding-bottom: 1em;">
+                                <button type="submit" class="btn btn-danger">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container-fluid bg-dark"
+                style="width: 40%;; border-radius: 1em; margin-top: 1em; margin-bottom: 1em; ">
+                <div class="row">
+                    <div class="col">
+                        <nav class="navbar bg-body-light" style="padding-top: 1.5em;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" style="color: white;">Cavalos majestosos na sua área</a>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="col-centered">
+                        <div class="container-fluid d-flex justify-content-center" style="padding-bottom: 1em;">
+                            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel"
+                                style="width: 30em;">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active holographic-card">
+                                        <img src="cavalo3.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item holographic-card">
+                                        <img src="cavalo.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item holographic-card">
+                                        <img src="cavalo2.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item holographic-card">
+                                        <img src="cavalo6.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item holographic-card">
+                                        <img src="cavalo4.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Próximo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="container-fluid">
+                            <h5 style="color: white;">Para estes e muitos outros cavalos, <span
+                                    id="destaque">CADASTRE-SE</span></h5>
+                                    <br><br><br>
+                                    <h6 style="color: white;">Considere também jogar nosso incrível jogo logo abaixo!</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-fluid bg-dark"
+        style="width: 88%;; border-radius: 1em; margin-top: 1em; margin-bottom: 1em; padding-top: 1em; padding-bottom: 1em; ">
+        <div class="row">
+            <div class="col">
+                <section>
+                    <div class="game-container">
+                        <div class="dino"></div>
+                        <div class="tree"></div>
+                        <div class="ground"></div>
+                        <h1 class="game-over">Você perdeu!</h1>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const dino = document.querySelector('.dino');
+const tree = document.querySelector('.tree');
+const gameOverText = document.querySelector('.game-over');
+let isJumping = false;
+let isGameOver = false;
+
+// Dino jump function
+function jump() {
+  if (isJumping) return; // Prevent multiple jumps
+  isJumping = true;
+
+  let position = 0;
+  const upInterval = setInterval(() => {
+    if (position >= 150) {
+      clearInterval(upInterval);
+      const downInterval = setInterval(() => {
+        if (position <= 20) {
+          clearInterval(downInterval);
+          isJumping = false;
+        }
+        position -= 10;
+        dino.style.bottom = position + 'px';
+      }, 20);
+    }
+    position += 10;
+    dino.style.bottom = position + 'px';
+  }, 20);
+}
+
+// Collision detection
+function checkCollision() {
+  const dinoRect = dino.getBoundingClientRect();
+  const treeRect = tree.getBoundingClientRect();
+
+  if (
+    dinoRect.right > treeRect.left &&
+    dinoRect.left < treeRect.right &&
+    dinoRect.bottom > treeRect.top
+  ) {
+    isGameOver = true;
+    tree.style.animation = 'none';
+    tree.style.right = treeRect.right + 'px';
+    gameOverText.style.display = 'block';
+  }
+}
+
+// Listen for key presses
+document.addEventListener('keydown', (event) => {
+  if (event.key === ' ' || event.key === 'ArrowUp') {
+    if (!isGameOver) jump();
+  }
+});
+
+// Run collision detection continuously
+setInterval(() => {
+  if (!isGameOver) checkCollision();
+}, 20);
+</script>
+
+</html>
